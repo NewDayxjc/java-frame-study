@@ -10,8 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @name Application
  */
 @SpringBootApplication
-public class Application {
+public class OssApplication {
     public static void main(String[] args) {
-        SpringApplication.run(Application.class,args);
+        SpringApplication.run(OssApplication.class,args);
     }
 }
