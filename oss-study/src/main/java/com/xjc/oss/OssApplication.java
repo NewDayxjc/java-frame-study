@@ -1,7 +1,9 @@
 package com.xjc.oss;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author XiongJinChen
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @name Application
  */
 @SpringBootApplication
+//@ComponentScan("com.xjc.oss.config")
 public class OssApplication {
     public static void main(String[] args) {
         SpringApplication.run(OssApplication.class,args);

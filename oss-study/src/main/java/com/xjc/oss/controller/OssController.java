@@ -1,9 +1,8 @@
 package com.xjc.oss.controller;
 
 import com.xjc.oss.service.OssService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.xjc.oss.service.PostObjectService;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -18,9 +17,28 @@ import javax.annotation.Resource;
 public class OssController {
     @Resource
     private OssService ossService;
-    @GetMapping
+    @Resource
+    private PostObjectService postObjectService;
+
+    @PostMapping(value = "/ossString")
     public void ossString(){
         ossService.uploadString();
+    }
+    //uploadByteArray
+
+    @PostMapping(value = "/ossByte")
+    public void ossByte(){
+        ossService.uploadByteArray();
+    }
+
+    @PostMapping(value = "/postObject")
+    public void postObject() throws Exception {
+        postObjectService.PostObject();
+    }
+
+    @PostMapping(value ="/downFile")
+    public void downFile(){
+        ossService.downloadFile();
     }
 }
 

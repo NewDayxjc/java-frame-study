@@ -2,7 +2,9 @@ package com.xjc.oss.config;
 
 
 
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +14,6 @@ import org.springframework.stereotype.Component;
  * @name OssConfig
  */
 
-@Component
 @ConfigurationProperties(prefix = "ali")
 public class OssConfig {
     private String endpoint;
