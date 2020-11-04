@@ -2,6 +2,8 @@ package com.xjc.oss.controller;
 
 import com.xjc.oss.service.OssService;
 import com.xjc.oss.service.PostObjectService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -15,7 +17,8 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/oss")
 public class OssController {
-    @Resource
+    @Qualifier("oss")
+    @Autowired
     private OssService ossService;
     @Resource
     private PostObjectService postObjectService;

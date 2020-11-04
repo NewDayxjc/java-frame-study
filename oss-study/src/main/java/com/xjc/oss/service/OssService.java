@@ -24,7 +24,7 @@ import java.util.Map;
  * @date 2020/10/24 15:54
  * @name OssService
  */
-@Service
+@Service("oss")
 public class OssService {
     @Resource
     private OssConfig ossConfig;

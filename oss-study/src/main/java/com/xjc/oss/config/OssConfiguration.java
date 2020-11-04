@@ -1,5 +1,6 @@
 package com.xjc.oss.config;
 
+import com.xjc.oss.service.OssService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -16,4 +17,8 @@ public class OssConfiguration {
     public OssConfig ossConfig(){
         return new OssConfig();
     }
+//    @Bean("oss")
+//    public OssService ossService(){
+//        return new OssService();
+//    }
 }
