@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 @MapperScan(value = "com.xjc.security.dao")
 @SpringBootApplication
 @RestController
+@MapperScan("com.xjc.security.dao")
 public class SecurityApplication {
     public static void main(String[] args) {
        SpringApplication.run(SecurityApplication.class,args);

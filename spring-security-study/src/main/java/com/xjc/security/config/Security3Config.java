@@ -42,8 +42,10 @@ public class Security3Config extends WebSecurityConfigurerAdapter {
         manager.createUser(User.withUsername("admin").password("123").roles("USER","ROLE").build());
         return manager;
     }
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return NoOpPasswordEncoder.getInstance();
     }
+
 }
