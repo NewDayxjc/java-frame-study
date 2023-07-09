@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util" xmlns:bean="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util/spring-util.xsd
+       http://www.springframework.org/schema/beans">
+
+    <bean id="student" class="com.spring.pojo.Student">
+        <property name="name" value="Marry"/>
+        <property name="age" value="15"/>
+        <property name="hobbies">
+            <array>
+                <value>篮球</value>
+                <value>阅读</value>
+                <value>旅游</value>
+            </array>
+
+        </property>
+        <property name="bookList">
+            <list>
+             <ref bean="book1"></ref>
+             <ref bean="book2"></ref>
+            </list>
+        </property>
+        
+        <property name="teacherMap">
+            <map>
+                <entry>
+                    <key>
+                        <value>chineseTeacher</value>
+                    </key>
+                    <ref bean="teacher1"></ref>
+                </entry>
+                <entry>
+                    <key>
+                        <value>englishteacher</value>
+                    </key>
+                    <ref bean="teacher2"></ref>
+                </entry>
+            </map>
+        </property>
+        
+    </bean>
+
+    <bean id="teacher1" class="com.spring.pojo.Teacher">
+        <property name="name" value="程志明"/>
+        <property name="subject" value="Chinese"/>
+    </bean>
+    <bean id="teacher2" class="com.spring.pojo.Teacher">
+        <property name="name" value="陈明"/>
+        <property name="subject" value="English"/>
+    </bean>
+
+    <bean id="book1" class="com.spring.pojo.Book">
+        <property name="name" value="Chinese"/>
+        <property name="type" value="1"/>
+        <property name="price" value="23.65"/>
+    </bean>
+
+    <bean id="book2" class="com.spring.pojo.Book">
+        <property name="name" value="English"/>
+        <property name="type" value="2"/>
+        <property name="price" value="19.66"/>
+    </bean>
+
+    <!--list集合类型的bean-->
+    <util:list id="Books">
+        <ref bean="book1"></ref>
+        <ref bean="book2"></ref>
+    </util:list>
+
+    <util:map id="map">
+        <entry>
+            <key>
+                <value>teacher1</value>
+            </key>
+            <ref bean="teacher1"></ref>
+        </entry>
+    </util:map>
+
+
+    <!--P命名空间-->
+    <bean id="student2" class="com.spring.pojo.Student"
+          p:name="小明" p:teacherMap-ref="map" p:bookList-ref="book2">
+    </bean>
+
+</beans>
