@@ -1,21 +1,34 @@
 package com.spring.music;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javazoom.jl.player.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.nio.file.*;
+import java.util.Date;
 
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.media.AudioClip;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 public class RemindMain {
     //日志文件
-    private static final String LOG_PATH = "D:\\develop\\code\\java\\RuoYi-Vue\\ruoyi-admin\\src\\main\\resources\\配置.ini";
-    private static final String MUSIC_PATH = "D:\\develop\\code\\java\\java-frame-study\\spring-study\\src\\main\\resources\\world.mp3";
-    private static final String TARGET_STRING = "StatusDesc";  // 替换为要捕捉的特定字符串
+    private static final String LOG_PATH = "D:\\配置.ini";
+    private static final String MUSIC_PATH = "D:\\develop\\code\\java-frame-study\\spring-study\\src\\main\\resources\\world.mp3" ;
+    private static final String TARGET_STRING = "changed";  // 替换为要捕捉的特定字符串
+    private static final String TARGET_STRING2 = "StatusDesc";  // 替换为要捕捉的特定字符串
+    private static final String TARGET_STRING3 = "General bet placement error";  // 替换为要捕捉的特定字符串
 
     public static void main(String[] args) {
         try {
             watchLogFile(args);
+//            launch(args);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -75,8 +88,17 @@ public class RemindMain {
             int i=0;
             while ((line = reader.readLine()) != null) {
                 // 检查是否包含目标字符串
-                if (line.contains(TARGET_STRING)) {
-                    System.out.println("捕捉到特定字符串：" + TARGET_STRING);
+                if (line.contains(TARGET_STRING) || line.contains(TARGET_STRING2) || line.contains(TARGET_STRING3)) {
+                    if(line.contains(TARGET_STRING)){
+                        System.out.println("捕捉到特定字符串：" + TARGET_STRING);
+
+                    }else if(line.contains(TARGET_STRING2)){
+                        System.out.println("捕捉到特定字符串：" + TARGET_STRING2);
+
+                    }else if(line.contains(TARGET_STRING3)){
+                        System.out.println("捕捉到特定字符串：" + TARGET_STRING3);
+
+                    }
 //                    launch(args);
 
                     //发出声音
@@ -168,12 +190,14 @@ public class RemindMain {
 
             System.out.println("开始播放音频文件：" + filePath);
 
+            System.out.println("notify Time :"+new Date().getTime());
 
-//            player.play();
+
+
+            player.play();
             // 发出蜂鸣声
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 6; i++) {
                 Toolkit.getDefaultToolkit().beep();
-
                 Thread.sleep(1000);
 
             }
@@ -209,6 +233,24 @@ public class RemindMain {
             throw new RuntimeException(e);
         }
     }
+
+//    @Override
+//    public void start(Stage primaryStage) throws Exception {
+//        Button playButton = new Button("播放");
+//
+//        // 创建音频剪辑
+//        AudioClip audioClip = new AudioClip(MUSIC_PATH);
+//
+//        // 设置播放按钮的点击事件
+//        playButton.setOnAction(event -> audioClip.play());
+//
+//        VBox root = new VBox(playButton);
+//        Scene scene = new Scene(root, 200, 100);
+//
+//        primaryStage.setTitle("音频播放器");
+//        primaryStage.setScene(scene);
+//        primaryStage.show();
+//    }
 }
 
 //            AudioInputStream ais = null;
