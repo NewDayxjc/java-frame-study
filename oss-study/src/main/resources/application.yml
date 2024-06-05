@@ -1,7 +1,0 @@
-server:
-  port: 8080
-ali:
-  endpoint: http://oss-cn-shenzhen.aliyuncs.com
-  accessKeyId: LTAI4FsZrDy3KUBkwyrTquZd
-  accessKeySecret: 8LnxuLNlIgGZ7ThVM7E5WYze9SUwAy
-  bucketName: xjc-character
